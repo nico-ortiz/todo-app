@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+header > h1 {
+    letter-spacing: 10px;
+    color: white;
+    font-size: 2rem;
+}
+
+header > img {
+    max-width: 30px;
+    width: 100%;
+    object-fit: cover;
+}
