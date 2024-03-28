@@ -1,0 +1,12 @@
+<section class="input-container">
+    <label for="description-task">
+        <input 
+            id="description-task" 
+            class="input-todo josefin-sans-400"
+            [formControl]="taskForm" 
+            (keyup.enter)="sendTask()"
+            type="text" 
+            placeholder="Create a new todo..."
+        >
+    </label>
+</section>

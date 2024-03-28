@@ -1,0 +1,30 @@
+.input-container {
+    padding-top: 50px;
+    width: 100%;
+}
+
+label {
+    position: relative;
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50px;
+    border: 1px solid var(--very-light-grayish-blue);
+}
+
+.input-todo {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 20px 20px 50px;
+
+    color: var(--very-dark-blue);
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+}
