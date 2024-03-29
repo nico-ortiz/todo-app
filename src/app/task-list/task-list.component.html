@@ -1,10 +1,13 @@
 <app-data-input-box (taskEvent)="receiveTask($event)"></app-data-input-box>
 <section class="task-list">
-    @for (task of taskList; track task.description) {
-        <div class="item-container">
-            {{task.description}}
-        </div>
-    }
+    <div class="tasks">
+        @for (task of taskList; track task.description) {
+            <div class="item-container">
+                <div class="check"></div>
+                <p class="description josefin-sans-400">{{task.description}}</p>
+            </div>
+        }
+    </div>
 
     <div class="control-btns josefin-sans-400">
         <p>{{taskList.length}} items left</p>
@@ -13,6 +16,6 @@
             <li>Active</li>
             <li>Completed</li>
         </ul>
-        <p>Clear Completed</p>
+        <p class="clear-btn">Clear Completed</p>
     </div>
 </section>
