@@ -23,6 +23,19 @@
     border-bottom: 1px solid var(--very-light-grayish-blue);
 }
 
+.task-list .tasks .item-container:hover::after {
+    content: url("../../assets/images/icon-cross.svg");
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    height: 17px;
+    width: 17px;
+}
+
+.task-list .tasks .item-container:hover::after path:hover {
+    cursor: pointer;
+}
+
 .task-list .tasks .item-container .check {
     position: absolute;
     left: 15px;
