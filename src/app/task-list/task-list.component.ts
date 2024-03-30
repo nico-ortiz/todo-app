@@ -65,10 +65,15 @@ export class TaskListComponent {
   }
 
   clearCompletedTasks() {
-    this.taskList = this.taskList.filter((elem) => {
-      elem.status = true;
-    });
     this.completedTaskList = [];
+    this.allTaskList = this.clearAllCompletedTasks();
+    this.showTasks();
+  }
+
+  clearAllCompletedTasks() {
+    return this.allTaskList.filter(task => 
+      task.status === true
+    );
   }
 
   addCompletedTask(task: Task) {
@@ -76,6 +81,14 @@ export class TaskListComponent {
       task.status = false;
       this.completedTaskList.push(task);
       this.deleteTask(this.activeTaskList, task);
+    }
+  }
+
+  removeCompletedTask(task: Task) {
+    if (task.status === false) {
+      task.status = true;
+      this.activeTaskList.push(task);
+      this.deleteTask(this.completedTaskList, task);
     }
   }
 

@@ -48,6 +48,33 @@
     cursor: pointer;
 }
 
+.task-list .tasks .item-container .check.complete {
+    border: none;
+}
+
+.task-list .tasks .item-container .check-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 19px;
+    height: 19px;
+    background: var(--check-background);
+    border-radius: 50px;
+    border: none;
+    
+    display: flex;
+}
+
+.task-list .tasks .item-container .check-logo > path {
+    
+}
+
+
+.task-list .tasks .item-container .completed-task {
+    text-decoration-line: line-through;
+    color: var(--light-grayish-blue);
+}
+
 
 .task-list .control-btns {
     box-sizing: border-box;
