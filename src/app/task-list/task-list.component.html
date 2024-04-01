@@ -8,15 +8,18 @@
                     <p class="description josefin-sans-400">{{task.description}}</p>
                 } @else {
                     <div class="check complete" (click)="removeCompletedTask(task)">
-                        <!--<svg class="check-logo" xmlns="http://www.w3.org/2000/svg" width="19" height="19"><path fill="var(--check-background)" stroke="white" stroke-width="2" d="M1 4.304L3.696 7l6-6"/></svg>-->
                         <img class="check-img" src="../../assets/images/icons8-done-50.png">
                     </div>
                     <p class="description josefin-sans-400 completed-task">{{task.description}}</p>
-                }
+                } 
+                <img 
+                    class="cross-img" 
+                    src="../../assets/images/icon-cross.svg"
+                    (click)="removeTask(task)"    
+                >
             </div>
         }
     </div>
-
     <div class="control-btns josefin-sans-400">
         <p>{{taskList.length}} items left</p>
         <ul>

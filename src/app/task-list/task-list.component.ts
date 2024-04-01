@@ -97,5 +97,13 @@ export class TaskListComponent {
     if (index !== -1) {
       list.splice(index, 1);
     }
-  } 
+  }
+  
+  removeTask(task: Task) {
+    this.deleteTask(this.allTaskList, task);
+    this.deleteTask(this.activeTaskList, task);
+    this.deleteTask(this.completedTaskList, task);
+    this.deleteTask(this.taskList, task);
+    this.showTasks();
+  }
 }
