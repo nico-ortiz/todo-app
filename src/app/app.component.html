@@ -6,5 +6,9 @@
 </main> -->
 <section>
   <img class="bg-light" src="../assets/images/bg-desktop-light.jpg" alt="background-light-theme">
-  <app-container class="app-container"></app-container>
+  <img class="bg-dark" src="../assets/images/bg-desktop-dark.jpg" alt="background-dark-theme">
+  <app-container 
+    class="app-container"
+    (darkThemeEvent)="setThemeEvent($event)">
+  </app-container>
 </section>

@@ -1,4 +1,22 @@
+section {
+    height: 100vh;
+}
+
 .bg-light {
+    position: absolute;
+    width: 100vw;
+}
+
+.bg-dark {
+    display: none;
+}
+
+.dark {
+    background: var(--very-dark-blue);
+}
+
+.dark .bg-dark {
+    display: block;
     position: absolute;
     width: 100vw;
 }

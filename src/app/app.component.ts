@@ -13,15 +13,15 @@ import { ContainerModule } from './container/container.module';
 export class AppComponent {
   title = 'todo-app';
 
-  darkTheme: boolean = true;
-  @Output() darkThemeEvent = new EventEmitter<boolean>();
+  darkTheme!: boolean;
 
   setThemeEvent(darkTheme: boolean) {
     this.darkTheme = darkTheme;
-    this.sendThemeEvent();
-  }
-
-  sendThemeEvent() {
-    this.darkThemeEvent.emit(this.darkTheme);
+    
+    if (darkTheme) {
+      document.querySelector('section')?.classList.add('dark');
+    } else {
+      document.querySelector('section')?.classList.remove('dark');
+    }
   }
 }

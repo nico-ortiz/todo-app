@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-container',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './container.component.css'
 })
 export class ContainerComponent {
+  darkTheme! : boolean;
 
+    @Output() darkThemeEvent = new EventEmitter<boolean>();
+
+    setDarkTheme(darkTheme: boolean) {
+      this.darkTheme = darkTheme;
+      this.sendDarkTheme(this.darkTheme);
+    }
+
+    sendDarkTheme(darkTheme: boolean) {
+      this.darkThemeEvent.emit(darkTheme);
+    }
 }
