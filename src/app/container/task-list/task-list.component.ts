@@ -1,11 +1,8 @@
-import { Component } from '@angular/core';
-import { Task } from '../task';
-import { DataInputBoxComponent } from '../data-input-box/data-input-box.component';
+import { Component, Input } from '@angular/core';
+import { Task } from '../../task';
 
 @Component({
   selector: 'app-task-list',
-  standalone: true,
-  imports: [DataInputBoxComponent],
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
@@ -21,6 +18,18 @@ export class TaskListComponent {
   all: boolean = true;
   active: boolean = false;
   completed: boolean = false;
+
+  @Input() darkTheme!: boolean;
+
+  darkThemeTaskListHandle() {
+    if (this.darkTheme) {
+      document.querySelector('.task-list')?.classList.add('dark');
+      console.log("dark");
+    } else {
+      document.querySelector('.task-list')?.classList.remove('dark');
+      console.log("light");
+    }
+  }
 
   showTasks() {
     if (this.all) {

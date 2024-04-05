@@ -1,15 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { TaskListComponent } from './task-list/task-list.component';
+import { ContainerComponent } from './container/container.component';
+import { ContainerModule } from './container/container.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, TaskListComponent],
+  imports: [ContainerModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'todo-app';
+
+  darkTheme: boolean = true;
+  @Output() darkThemeEvent = new EventEmitter<boolean>();
+
+  setThemeEvent(darkTheme: boolean) {
+    this.darkTheme = darkTheme;
+    this.sendThemeEvent();
+  }
+
+  sendThemeEvent() {
+    this.darkThemeEvent.emit(this.darkTheme);
+  }
 }

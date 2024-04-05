@@ -1,4 +1,8 @@
-<app-data-input-box (taskEvent)="receiveTask($event)"></app-data-input-box>
+<!-- <app-data-input-box 
+    (taskEvent)="receiveTask($event)"
+    [darkTheme]="darkTheme"    
+>
+</app-data-input-box> -->
 <section class="task-list">
     <div class="tasks">
         @for (task of taskList; track task.description) {
@@ -15,7 +19,8 @@
                 <img 
                     class="cross-img" 
                     src="../../assets/images/icon-cross.svg"
-                    (click)="removeTask(task)"    
+                    (click)="removeTask(task)" 
+                    alt="cross-img"   
                 >
             </div>
         }

@@ -1,11 +1,9 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Task } from '../task';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Task } from '../../task';
 
 @Component({
   selector: 'app-data-input-box',
-  standalone: true,
-  imports: [ReactiveFormsModule],
   templateUrl: './data-input-box.component.html',
   styleUrl: './data-input-box.component.css'
 })
@@ -22,5 +20,15 @@ export class DataInputBoxComponent {
 
     this.taskForm.reset();
     this.taskEvent.emit(task);
+  }
+
+  @Input() darkTheme! : boolean;
+
+  darkThemeDataInputBoxHandle() {
+    if (this.darkTheme) {
+
+    } else {
+      
+    }
   }
 }
