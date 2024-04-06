@@ -14,3 +14,20 @@ header > img {
     max-width: 100%;
     object-fit: contain;
 }
+ 
+.header .sun-btn:hover,
+.header .moon-btn:hover {
+    cursor: pointer;
+}
+
+.header .sun-btn  {
+    display: none;
+}
+
+.header.dark .moon-btn {
+    display: none;
+}
+
+.header.dark .sun-btn {
+    display: block;
+}

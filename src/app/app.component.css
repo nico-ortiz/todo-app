@@ -1,14 +1,26 @@
-main {
-    width: 100%;
+section {
     height: 100vh;
-
-    display: flex;
-    align-items: center;
 }
 
-.container {
-    width: 40%;
-    height: 80%;
+.bg-light {
+    position: absolute;
+    width: 100vw;
+}
 
-    margin: 0 auto;
+.bg-dark {
+    display: none;
+}
+
+.dark {
+    background: var(--very-dark-blue);
+}
+
+.dark .bg-dark {
+    display: block;
+    position: absolute;
+    width: 100vw;
+}
+
+.app-container {
+    position: relative;
 }

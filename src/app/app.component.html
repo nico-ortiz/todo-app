@@ -1,6 +1,8 @@
-<main>
-  <section class="container">
-    <app-header></app-header>
-    <app-task-list></app-task-list>
-  </section>
-</main>
+<section>
+  <img class="bg-light" src="../assets/images/bg-desktop-light.jpg" alt="background-light-theme">
+  <img class="bg-dark" src="../assets/images/bg-desktop-dark.jpg" alt="background-dark-theme">
+  <app-container 
+    class="app-container"
+    (darkThemeEvent)="setThemeEvent($event)">
+  </app-container>
+</section>

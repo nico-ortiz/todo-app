@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DataInputBoxComponent } from './data-input-box.component';
+import { TaskListComponent } from './task-list.component';
 
-describe('DataInputBoxComponent', () => {
-  let component: DataInputBoxComponent;
-  let fixture: ComponentFixture<DataInputBoxComponent>;
+describe('TaskListComponent', () => {
+  let component: TaskListComponent;
+  let fixture: ComponentFixture<TaskListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DataInputBoxComponent]
+      declarations: [TaskListComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(DataInputBoxComponent);
+    fixture = TestBed.createComponent(TaskListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -28,3 +28,12 @@ label::before {
     border-radius: 5px;
     border: none;
 }
+
+.input-container.dark .input-todo {
+    background-color: var(--very-dark-desaturated-blue);
+    color: var(--light-grayish-blue);
+}
+
+.input-container.dark label::before {
+    border-color: var(--very-dark-grayish-blue);
+}

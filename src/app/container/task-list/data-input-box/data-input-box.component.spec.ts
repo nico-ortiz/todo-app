@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import { DataInputBoxComponent } from './data-input-box.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('DataInputBoxComponent', () => {
+  let component: DataInputBoxComponent;
+  let fixture: ComponentFixture<DataInputBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
+      declarations: [DataInputBoxComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(DataInputBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
