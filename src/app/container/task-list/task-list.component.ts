@@ -1,3 +1,5 @@
+
+
 import { Component, Input } from '@angular/core';
 import { Task } from '../../task';
 
@@ -17,16 +19,15 @@ export class TaskListComponent {
   all: boolean = true;
   active: boolean = false;
   completed: boolean = false;
+  clear: boolean = false;
 
   @Input() darkTheme!: boolean;
 
   darkThemeTaskListHandle() {
     if (this.darkTheme) {
       document.querySelector('.task-list')?.classList.add('dark');
-      console.log("dark");
     } else {
       document.querySelector('.task-list')?.classList.remove('dark');
-      console.log("light");
     }
   }
 
@@ -38,6 +39,7 @@ export class TaskListComponent {
     } else {
       this.taskList = this.completedTaskList;
     }
+    this.modifyColorBtn();
   }
 
   receiveTask(task: Task) {
@@ -54,6 +56,7 @@ export class TaskListComponent {
     this.all = true;
     this.active = false;
     this.completed = false;
+    this.clear = false;
     this.showTasks();
   }
 
@@ -61,6 +64,7 @@ export class TaskListComponent {
     this.all = false;
     this.active = true;
     this.completed = false;
+    this.clear = false;
     this.showTasks();
   }
 
@@ -68,12 +72,41 @@ export class TaskListComponent {
     this.all = false;
     this.active = false;
     this.completed = true;
+    this.clear = false;
     this.showTasks();
+  }
+
+  modifyColorBtn() {
+    if (this.all && !this.active && !this.completed && !this.clear) {
+      document.querySelector('.task-list .control-btns .all-btn')?.classList.add('select');
+      document.querySelector('.task-list .control-btns .active-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .completed-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .clear-btn')?.classList.remove('select');
+    } else if (!this.all && this.active && !this.completed && !this.clear) {
+      document.querySelector('.task-list .control-btns .all-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .active-btn')?.classList.add('select');
+      document.querySelector('.task-list .control-btns .completed-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .clear-btn')?.classList.remove('select');
+    } else if (!this.all && !this.active && this.completed && !this.clear) {
+      document.querySelector('.task-list .control-btns .all-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .active-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .completed-btn')?.classList.add('select');
+      document.querySelector('.task-list .control-btns .clear-btn')?.classList.remove('select');
+    } else if (!this.all && !this.active && !this.completed && this.clear) {
+      document.querySelector('.task-list .control-btns .all-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .active-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .completed-btn')?.classList.remove('select');
+      document.querySelector('.task-list .control-btns .clear-btn')?.classList.add('select');
+    }
   }
 
   clearCompletedTasks() {
     this.completedTaskList = [];
     this.allTaskList = this.clearAllCompletedTasks();
+    this.all = false;
+    this.active = false;
+    this.completed = false;
+    this.clear = true;
     this.showTasks();
   }
 

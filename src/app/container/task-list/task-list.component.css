@@ -16,6 +16,9 @@
 
 .task-list.dark {
     background-color: var(--very-dark-desaturated-blue);
+    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
 }
 
 .task-list .tasks {
@@ -25,6 +28,10 @@
 .task-list .tasks .item-container {
     position: relative;
     border-bottom: 1px solid var(--very-light-grayish-blue);
+}
+
+.task-list.dark .tasks .item-container {
+    border-bottom-color: var(--very-dark-grayish-blue);
 }
 
 .task-list .tasks .item-container .check {
@@ -37,6 +44,10 @@
     border: 1px solid var(--very-light-grayish-blue);
 }
 
+.task-list.dark .tasks .item-container .check {
+    border-color: var(--very-dark-grayish-blue);
+}
+
 .task-list .tasks .item-container .check:hover {
     cursor: pointer;
     border-color: var(--bright-blue);
@@ -46,6 +57,10 @@
     padding: 20px 20px 20px 50px;
     font-size: 1rem;
     color: var(--very-dark-blue);
+}
+
+.task-list.dark .tasks .item-container .description {
+    color: var(--light-grayish-blue);
 }
 
 .task-list .tasks .item-container .description:hover {
@@ -72,6 +87,10 @@
 .task-list .tasks .item-container .completed-task {
     text-decoration-line: line-through;
     color: var(--light-grayish-blue);
+}
+
+.task-list.dark .tasks .item-container .completed-task {
+    color: var(--dark-grayish-blue);
 }
 
 .task-list .tasks .item-container .cross-img {
@@ -106,6 +125,15 @@
     color: var(--dark-grayish-blue);
 }
 
+.task-list.dark .control-btns {
+    border-top-color: var(--very-dark-grayish-blue);
+    color: var(--very-dark-grayish-blue);
+}
+
+.task-list .control-btns .items-count {
+    width: 80px;
+}
+
 .task-list .control-btns > ul {
     padding: 0;
     width: 30%;
@@ -118,4 +146,13 @@
 .task-list .control-btns .clear-btn:hover {
     cursor: pointer;
     color: var(--very-dark-blue);
+}
+
+.task-list.dark .control-btns > ul > li:hover,
+.task-list.dark .control-btns .clear-btn:hover {
+    color: var(--light-grayish-blue-hover);
+}
+
+.task-list .control-btns .select{
+    color: var(--bright-blue);
 }

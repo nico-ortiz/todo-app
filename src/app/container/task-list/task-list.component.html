@@ -4,6 +4,7 @@
 </app-data-input-box>
 <section class="task-list">
     <div class="tasks">
+        {{darkThemeTaskListHandle()}}
         @for (task of taskList; track task.description) {
             <div class="item-container">
                 @if (task.status === true) {
@@ -25,11 +26,11 @@
         }
     </div>
     <div class="control-btns josefin-sans-400">
-        <p>{{taskList.length}} items left</p>
+        <p class="items-count">{{taskList.length}} items left</p>
         <ul>
-            <li (click)="allBtnHandle()">All</li>
-            <li (click)="activeBtnHandle()">Active</li>
-            <li (click)="completedBtnHandle()">Completed</li>
+            <li class="all-btn" (click)="allBtnHandle()">All</li>
+            <li class="active-btn" (click)="activeBtnHandle()">Active</li>
+            <li class="completed-btn" (click)="completedBtnHandle()">Completed</li>
         </ul>
         <p class="clear-btn" (click)="clearCompletedTasks()">Clear Completed</p>
     </div>
