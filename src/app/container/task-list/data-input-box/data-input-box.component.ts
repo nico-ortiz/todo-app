@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Task } from '../../../task';
 import { FormControl } from '@angular/forms';
-import { Task } from '../../task';
 
 @Component({
   selector: 'app-data-input-box',
@@ -8,17 +8,17 @@ import { Task } from '../../task';
   styleUrl: './data-input-box.component.css'
 })
 export class DataInputBoxComponent {
-  taskForm = new FormControl('');
+  taskFieldForm = new FormControl('');
 
   @Output() taskEvent = new EventEmitter<Task>();
 
   sendTask() {
     let task: Task = {
-      description: this.taskForm.value || '',
+      description: this.taskFieldForm.value || '',
       status: true
-    }; 
+    };
 
-    this.taskForm.reset();
+    this.taskFieldForm.reset();
     this.taskEvent.emit(task);
   }
 
@@ -31,4 +31,5 @@ export class DataInputBoxComponent {
       
     }
   }
+
 }

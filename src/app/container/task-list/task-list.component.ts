@@ -7,7 +7,6 @@ import { Task } from '../../task';
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
-  receivedTask!: Task;
 
   taskList: Task[] = [];
   allTaskList: Task[] = [];
@@ -42,7 +41,6 @@ export class TaskListComponent {
   }
 
   receiveTask(task: Task) {
-    this.receivedTask = task;
     this.addTask(task);
   }
 
@@ -115,4 +113,5 @@ export class TaskListComponent {
     this.deleteTask(this.taskList, task);
     this.showTasks();
   }
+
 }

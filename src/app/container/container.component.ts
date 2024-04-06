@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-container',
@@ -8,14 +9,14 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class ContainerComponent {
   darkTheme! : boolean;
 
-    @Output() darkThemeEvent = new EventEmitter<boolean>();
+  @Output() darkThemeEvent = new EventEmitter<boolean>();
 
-    setDarkTheme(darkTheme: boolean) {
-      this.darkTheme = darkTheme;
-      this.sendDarkTheme(this.darkTheme);
-    }
+  setDarkTheme(darkTheme: boolean) {
+    this.darkTheme = darkTheme;
+    this.sendDarkTheme(this.darkTheme);
+  }
 
-    sendDarkTheme(darkTheme: boolean) {
-      this.darkThemeEvent.emit(darkTheme);
-    }
+  sendDarkTheme(darkTheme: boolean) {
+    this.darkThemeEvent.emit(darkTheme);
+  }
 }
