@@ -26,10 +26,9 @@ export class DataInputBoxComponent {
 
   darkThemeDataInputBoxHandle() {
     if (this.darkTheme) {
-
+      document.querySelector('.input-container')?.classList.add('dark');
     } else {
-      
+      document.querySelector('.input-container')?.classList.remove('dark');
     }
   }
-
 }
