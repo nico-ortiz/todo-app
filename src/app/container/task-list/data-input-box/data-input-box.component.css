@@ -21,17 +21,23 @@ label::before {
 .input-todo {
     width: 100%;
     box-sizing: border-box;
-    padding: 20px 20px 20px 50px;
+    padding: 30px 30px 30px 50px;
 
     color: var(--very-dark-blue);
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     border: none;
+    box-shadow: 0px 6px 12px 1px rgba(120,119,119,0.75);
+    -webkit-box-shadow: 0px 6px 12px 1px rgba(120,119,119,0.75);
+    -moz-box-shadow: 0px 6px 12px 1px rgba(120,119,119,0.75);
 }
 
 .input-container.dark .input-todo {
     background-color: var(--very-dark-desaturated-blue);
     color: var(--light-grayish-blue);
+    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
 }
 
 .input-container.dark label::before {
