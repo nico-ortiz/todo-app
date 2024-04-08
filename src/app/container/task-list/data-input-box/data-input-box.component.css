@@ -43,3 +43,9 @@ label::before {
 .input-container.dark label::before {
     border-color: var(--very-dark-grayish-blue);
 }
+
+@media only screen and (width <= 768px) {
+    .input-todo {
+        padding: 20px 20px  20px 40px;
+    }
+}

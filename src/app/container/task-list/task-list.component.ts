@@ -82,21 +82,37 @@ export class TaskListComponent {
       document.querySelector('.task-list .control-btns .active-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .completed-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .clear-btn')?.classList.remove('select');
+
+      document.querySelector('.task-list .controls-btns-mobile .all-btn')?.classList.add('select');
+      document.querySelector('.task-list .controls-btns-mobile .active-btn')?.classList.remove('select');
+      document.querySelector('.task-list .controls-btns-mobile .completed-btn')?.classList.remove('select');
     } else if (!this.all && this.active && !this.completed && !this.clear) {
       document.querySelector('.task-list .control-btns .all-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .active-btn')?.classList.add('select');
       document.querySelector('.task-list .control-btns .completed-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .clear-btn')?.classList.remove('select');
+
+      document.querySelector('.task-list .controls-btns-mobile .all-btn')?.classList.remove('select');
+      document.querySelector('.task-list .controls-btns-mobile .active-btn')?.classList.add('select');
+      document.querySelector('.task-list .controls-btns-mobile .completed-btn')?.classList.remove('select');
     } else if (!this.all && !this.active && this.completed && !this.clear) {
       document.querySelector('.task-list .control-btns .all-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .active-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .completed-btn')?.classList.add('select');
       document.querySelector('.task-list .control-btns .clear-btn')?.classList.remove('select');
+
+      document.querySelector('.task-list .controls-btns-mobile .all-btn')?.classList.remove('select');
+      document.querySelector('.task-list .controls-btns-mobile .active-btn')?.classList.remove('select');
+      document.querySelector('.task-list .controls-btns-mobile .completed-btn')?.classList.add('select');
     } else if (!this.all && !this.active && !this.completed && this.clear) {
       document.querySelector('.task-list .control-btns .all-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .active-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .completed-btn')?.classList.remove('select');
       document.querySelector('.task-list .control-btns .clear-btn')?.classList.add('select');
+
+      document.querySelector('.task-list .controls-btns-mobile .all-btn')?.classList.remove('select');
+      document.querySelector('.task-list .controls-btns-mobile .active-btn')?.classList.remove('select');
+      document.querySelector('.task-list .controls-btns-mobile .completed-btn')?.classList.remove('select');
     }
   }
 

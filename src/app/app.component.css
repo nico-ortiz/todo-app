@@ -11,6 +11,14 @@ section {
     display: none;
 }
 
+.bg-light-mobile {
+    display: none;
+}
+
+.bg-dark-mobile {
+    display: none;
+}
+
 .dark {
     background: var(--very-dark-blue);
 }
@@ -23,4 +31,28 @@ section {
 
 .app-container {
     position: relative;
+}
+
+@media only screen and (width <= 768px) {
+    .bg-light {
+        display: none;
+    }
+
+    .bg-light-mobile {
+        display: block;
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .dark .bg-dark {
+        display: none;
+    }
+
+    .dark .bg-dark-mobile {
+        display: block;
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+    }
 }
