@@ -3,6 +3,18 @@
     width: 100%;
 }
 
+.input-container .invalid-message {
+    display: none;
+}
+
+.input-container.invalid .invalid-message {
+    display: block;
+    position: absolute;
+    top: 170px;
+    margin-bottom: 10px;
+    color: white;
+}
+
 label {
     position: relative;
 }
@@ -44,9 +56,25 @@ label::before {
     border-color: var(--very-dark-grayish-blue);
 }
 
+@media only screen and (width <= 1440px) {
+    .input-container.invalid .invalid-message {
+        top: 125px;
+    }
+}
+
+@media only screen and (width <= 1024px) {
+    .input-container.invalid .invalid-message {
+        top: 150px;
+    }
+}
+
 @media only screen and (width <= 768px) {
     .input-todo {
         padding: 20px 20px  20px 40px;
+    }
+
+    .input-container.invalid .invalid-message {
+        top: 140px;
     }
 }
 
@@ -54,10 +82,19 @@ label::before {
     .input-todo {
         font-size: 1rem;
     }
+
+    .input-container.invalid .invalid-message {
+        top: 100px;
+    }
 }
 
 @media only screen and (width <= 320px) {
     .input-container {
         padding-top: 20px;
+    }
+
+    .input-container.invalid .invalid-message {
+        top: 80px;
+        font-size: .7rem;
     }
 }

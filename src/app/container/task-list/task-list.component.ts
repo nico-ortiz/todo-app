@@ -119,10 +119,10 @@ export class TaskListComponent {
   clearCompletedTasks() {
     this.completedTaskList = [];
     this.allTaskList = this.clearAllCompletedTasks();
-    this.all = false;
+    this.all = true;
     this.active = false;
     this.completed = false;
-    this.clear = true;
+    this.clear = false;
     this.showTasks();
   }
 
