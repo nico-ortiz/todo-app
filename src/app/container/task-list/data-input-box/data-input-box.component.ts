@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Task } from '../../../task';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-input-box',
@@ -8,18 +8,23 @@ import { FormControl } from '@angular/forms';
   styleUrl: './data-input-box.component.css'
 })
 export class DataInputBoxComponent {
-  taskFieldForm = new FormControl('');
+  taskFieldForm = new FormControl('', Validators.required);
 
   @Output() taskEvent = new EventEmitter<Task>();
 
   sendTask() {
-    let task: Task = {
-      description: this.taskFieldForm.value || '',
-      status: true
-    };
+    if (!this.taskFieldForm.valid) {
+      document.querySelector('.input-container')?.classList.add('invalid');
+    } else {
+      document.querySelector('.input-container')?.classList.remove('invalid');
+      let task: Task = {
+        description: this.taskFieldForm.value || '',
+        status: true
+      };
 
-    this.taskFieldForm.reset();
-    this.taskEvent.emit(task);
+      this.taskFieldForm.reset();
+      this.taskEvent.emit(task);
+    }
   }
 
   @Input() darkTheme! : boolean;
