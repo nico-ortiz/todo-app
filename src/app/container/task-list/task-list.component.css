@@ -225,3 +225,10 @@
         font-size: 1rem;
     }
 }
+
+@media only screen and (width <= 325px) {
+    .task-list .controls-btns-mobile {
+        margin-bottom: 30px;
+        bottom: -120px;
+    }
+}
