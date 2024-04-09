@@ -219,3 +219,9 @@
         color: var(--very-dark-grayish-blue);
     }
 }
+
+@media only screen and (width <= 425px) {
+    .task-list .tasks .item-container .description {
+        font-size: 1rem;
+    }
+}

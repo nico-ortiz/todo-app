@@ -49,3 +49,9 @@ label::before {
         padding: 20px 20px  20px 40px;
     }
 }
+
+@media only screen and (width <= 425px) {
+    .input-todo {
+        font-size: 1rem;
+    }
+}
