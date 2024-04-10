@@ -1,6 +1,7 @@
 package com.goldeng.todoapp.model;
 
 import java.sql.Date;
+import java.util.UUID;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -23,7 +24,7 @@ public class Task {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     private String description;
 
