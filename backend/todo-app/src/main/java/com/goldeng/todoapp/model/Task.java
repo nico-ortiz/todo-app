@@ -1,6 +1,6 @@
 package com.goldeng.todoapp.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -14,10 +14,17 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Entity
 @Table(name = "tasks")
 public class Task {
@@ -32,6 +39,10 @@ public class Task {
     private Status status;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Date createdAt;
+    @Column(name = "creation_date", nullable = false, updatable = false)
+    private LocalDate creationDate;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
