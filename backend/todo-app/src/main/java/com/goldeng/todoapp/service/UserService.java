@@ -11,11 +11,15 @@ public interface UserService {
     
     UserResponse createUser(UserRequest userRequest);
 
-    UserResponse getUserById(UUID id);
+    UserResponse getUserById(UUID userId);
+
+    UserDto getUserDtoById(UUID userId);
 
     List<UserResponse> getUsers();
 
-    UserDto deleteUser(UUID id);
+    UserResponse deleteUser(UUID userId);
 
-    UserDto updateUser(UserDto user);
+    UserResponse updateUser(UserDto user);
+
+    UserResponse deleteTaskOfUser(UUID userId, UUID taskId);
 }

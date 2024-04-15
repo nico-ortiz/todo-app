@@ -19,12 +19,16 @@ public interface UserMapper {
     
     UserResponse toUserResponse(User user);
 
+    UserDto toUserDto(User user);
+
     @InheritInverseConfiguration
     @Mappings({
         @Mapping(target = "id", ignore = true),
         @Mapping(target = "tasks", ignore = true)
     })
-    User toUser(UserRequest userRequest);
+    User toUser(UserRequest userRequest);    
+
+    User toUser(UserDto userDto);
 
     List<UserResponse> toUserResponseList(List<User> users);
 

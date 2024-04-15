@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.goldeng.todoapp.model.Task;
 import com.goldeng.todoapp.model.User;
 import com.goldeng.todoapp.model.dtos.user.UserDto;
 import com.goldeng.todoapp.model.dtos.user.UserRequest;
@@ -34,8 +35,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponse getUserById(UUID id) {
-        return userMapper.toUserResponse(userRepository.findById(id).get());
+    public UserResponse getUserById(UUID userId) {
+        return userMapper.toUserResponse(userRepository.findById(userId).orElse(null));
+    }
+
+    @Override
+    public UserDto getUserDtoById(UUID userId) {
+        return userMapper.toUserDto(userRepository.findById(userId).orElse(null));
     }
 
     @Override
@@ -44,15 +50,36 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto deleteUser(UUID id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
+    public UserResponse deleteUser(UUID userId) {
+        User userToDelete = userMapper.toUser(this.getUserDtoById(userId));
+        userRepository.delete(userToDelete);
+        return userMapper.toUserResponse(userToDelete);
     }
 
     @Override
-    public UserDto updateUser(UserDto user) {
+    public UserResponse updateUser(UserDto user) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'updateUser'");
     }
-    
+
+    @Override
+    public UserResponse deleteTaskOfUser(UUID userId, UUID taskId) {
+        User user = userRepository.findById(userId).orElse(null);
+
+        if (user == null) {
+            return null;
+        }
+
+        List<Task> tasks = user.getTasks();
+        
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getId().equals(taskId)) {
+                tasks.remove(i);
+                user.setTasks(tasks);
+                UserResponse userResponse = userMapper.toUserResponse(userRepository.save(user));
+                return userResponse;
+            }
+        }
+        return null;
+    }  
 }
