@@ -9,13 +9,16 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.Mappings;
 
 import com.goldeng.todoapp.model.Task;
-import com.goldeng.todoapp.model.dtos.TaskDto;
+import com.goldeng.todoapp.model.dtos.task.TaskDto;
+import com.goldeng.todoapp.model.dtos.task.TaskWithoutUser;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface TaskMapper {
     
     @Mapping(source = "user.id", target = "userId")
     TaskDto toTaskDto(Task task);
+
+    TaskWithoutUser toTaskWithoutUser(Task task);
 
     @InheritInverseConfiguration
     @Mappings({

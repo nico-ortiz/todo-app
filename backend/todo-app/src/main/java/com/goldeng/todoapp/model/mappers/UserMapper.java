@@ -6,22 +6,27 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.Mappings;
 
 import com.goldeng.todoapp.model.User;
-import com.goldeng.todoapp.model.dtos.UserDto;
+import com.goldeng.todoapp.model.dtos.user.UserDto;
+import com.goldeng.todoapp.model.dtos.user.UserRequest;
+import com.goldeng.todoapp.model.dtos.user.UserResponse;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING,
         uses = TaskMapper.class)
 public interface UserMapper {
     
-    @Mapping(target = "password", ignore = true)
-    UserDto toUserDto(User user);
+    UserResponse toUserResponse(User user);
 
     @InheritInverseConfiguration
-    @Mapping(target = "id", ignore = true)
-    User toUser(UserDto userDto);
+    @Mappings({
+        @Mapping(target = "id", ignore = true),
+        @Mapping(target = "tasks", ignore = true)
+    })
+    User toUser(UserRequest userRequest);
 
-    List<UserDto> toUserDtoList(List<User> users);
+    List<UserResponse> toUserResponseList(List<User> users);
 
     List<User> toUserList(List<UserDto> usersDto);
 }
