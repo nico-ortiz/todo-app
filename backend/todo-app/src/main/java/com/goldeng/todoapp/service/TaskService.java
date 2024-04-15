@@ -3,13 +3,13 @@ package com.goldeng.todoapp.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.goldeng.todoapp.model.Task;
+import com.goldeng.todoapp.model.dtos.task.TaskDto;
 
 public interface TaskService {
 
-    Task createTask(Task task);
+    TaskDto createTask(TaskDto task);
 
-    Task getTask(UUID taskId);
+    TaskDto getTask(UUID taskId);
 
-    List<Task> getTasks();
+    List<TaskDto> getTasks();
 }

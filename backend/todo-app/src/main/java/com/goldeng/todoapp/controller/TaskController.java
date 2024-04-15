@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.goldeng.todoapp.model.Task;
+import com.goldeng.todoapp.model.dtos.task.TaskDto;
 import com.goldeng.todoapp.service.TaskService;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -24,17 +24,17 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping("{taskId}")
-    public ResponseEntity<Task> getTaskById(@PathVariable UUID taskId) {
+    public ResponseEntity<TaskDto> getTaskById(@PathVariable UUID taskId) {
         return ResponseEntity.ok(taskService.getTask(taskId));
     } 
 
     @PostMapping("")
-    public ResponseEntity<Task> createTask(@RequestBody Task request) {
+    public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto request) {
         return ResponseEntity.ok(taskService.createTask(request));
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Task>> getTasks() {
+    public ResponseEntity<List<TaskDto>> getTasks() {
         return ResponseEntity.ok(taskService.getTasks());
     } 
     
