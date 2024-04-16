@@ -52,4 +52,11 @@ public class UserController {
     public ResponseEntity<UserResponse> deleteUser(@PathVariable UUID userId) {
         return ResponseEntity.ok(userService.deleteUser(userId));
     }
+
+    @PutMapping("{userId}/tasks/completedTask/{taskId}")
+    public ResponseEntity<UserResponse> markTaskAsCompleted(
+            @PathVariable UUID userId,
+            @PathVariable UUID taskId) {
+        return ResponseEntity.ok(userService.markTaskAsCompleted(userId, taskId));
+    }
 }

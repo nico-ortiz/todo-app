@@ -12,4 +12,6 @@ public interface TaskService {
     TaskDto getTask(UUID taskId);
 
     List<TaskDto> getTasks();
+
+    TaskDto deleteTask(UUID taskId);
 }

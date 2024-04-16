@@ -11,6 +11,7 @@ import com.goldeng.todoapp.model.User;
 import com.goldeng.todoapp.model.dtos.user.UserDto;
 import com.goldeng.todoapp.model.dtos.user.UserRequest;
 import com.goldeng.todoapp.model.dtos.user.UserResponse;
+import com.goldeng.todoapp.model.enums.Status;
 import com.goldeng.todoapp.model.mappers.UserMapper;
 // import com.goldeng.todoapp.model.mappers.UserMapper;
 import com.goldeng.todoapp.repository.UserRepository;
@@ -75,6 +76,28 @@ public class UserServiceImpl implements UserService {
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getId().equals(taskId)) {
                 tasks.remove(i);
+                user.setTasks(tasks);
+                UserResponse userResponse = userMapper.toUserResponse(userRepository.save(user));
+                return userResponse;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public UserResponse markTaskAsCompleted(UUID userId, UUID taskId) {
+        User user = userRepository.findById(userId).orElse(null);
+
+        if (user == null) {
+            return null;
+        }
+
+        Task currentTask = new Task();
+        List<Task> tasks = user.getTasks();
+        for (int i = 0; i < tasks.size(); i++) {
+            currentTask = tasks.get(i);
+            if (currentTask.getId().equals(taskId)) {
+                currentTask.setStatus(Status.COMPLETED);
                 user.setTasks(tasks);
                 UserResponse userResponse = userMapper.toUserResponse(userRepository.save(user));
                 return userResponse;

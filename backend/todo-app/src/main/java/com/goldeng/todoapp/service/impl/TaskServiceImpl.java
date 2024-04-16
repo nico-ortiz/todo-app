@@ -52,5 +52,12 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDto> getTasks() {
        return taskMapper.toTaskDtoList(taskRepository.findAll());
     }
-    
+
+    @Override
+    public TaskDto deleteTask(UUID taskId) {
+        TaskDto taskDto = this.getTask(taskId);
+        Task taskToDelete = taskMapper.toTask(taskDto);
+        taskRepository.delete(taskToDelete);
+        return taskDto;
+    }
 }

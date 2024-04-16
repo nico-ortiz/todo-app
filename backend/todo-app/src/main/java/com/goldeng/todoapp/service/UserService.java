@@ -21,5 +21,7 @@ public interface UserService {
 
     UserResponse updateUser(UserDto user);
 
-    UserResponse deleteTaskOfUser(UUID userId, UUID taskId);
+    UserResponse deleteTaskOfUser(UUID userId, UUID taskId); 
+
+    UserResponse markTaskAsCompleted(UUID userId, UUID taskId);
 }
