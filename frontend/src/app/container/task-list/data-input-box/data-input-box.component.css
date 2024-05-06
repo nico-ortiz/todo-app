@@ -1,0 +1,100 @@
+.input-container {
+    padding-top: 50px;
+    width: 100%;
+}
+
+.input-container .invalid-message {
+    display: none;
+}
+
+.input-container.invalid .invalid-message {
+    display: block;
+    position: absolute;
+    top: 170px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+label {
+    position: relative;
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50px;
+    border: 1px solid var(--very-light-grayish-blue);
+}
+
+.input-todo {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 30px 30px 50px;
+
+    color: var(--very-dark-blue);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 6px 12px 1px rgba(120,119,119,0.75);
+    -webkit-box-shadow: 0px 6px 12px 1px rgba(120,119,119,0.75);
+    -moz-box-shadow: 0px 6px 12px 1px rgba(120,119,119,0.75);
+}
+
+.input-container.dark .input-todo {
+    background-color: var(--very-dark-desaturated-blue);
+    color: var(--light-grayish-blue);
+    box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 9px 0px rgba(0,0,0,0.75);
+}
+
+.input-container.dark label::before {
+    border-color: var(--very-dark-grayish-blue);
+}
+
+@media only screen and (width <= 1440px) {
+    .input-container.invalid .invalid-message {
+        top: 125px;
+    }
+}
+
+@media only screen and (width <= 1024px) {
+    .input-container.invalid .invalid-message {
+        top: 150px;
+    }
+}
+
+@media only screen and (width <= 768px) {
+    .input-todo {
+        padding: 20px 20px  20px 40px;
+    }
+
+    .input-container.invalid .invalid-message {
+        top: 140px;
+    }
+}
+
+@media only screen and (width <= 425px) {
+    .input-todo {
+        font-size: 1rem;
+    }
+
+    .input-container.invalid .invalid-message {
+        top: 100px;
+    }
+}
+
+@media only screen and (width <= 320px) {
+    .input-container {
+        padding-top: 20px;
+    }
+
+    .input-container.invalid .invalid-message {
+        top: 80px;
+        font-size: .7rem;
+    }
+}
