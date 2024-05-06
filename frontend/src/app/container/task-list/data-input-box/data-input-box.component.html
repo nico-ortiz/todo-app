@@ -1,0 +1,14 @@
+<section class="input-container">
+        <p class="invalid-message josefin-sans-400">Ingrese una tarea valida</p>
+        <label for="description-task">
+            {{darkThemeDataInputBoxHandle()}} 
+            <input 
+                id="description-task" 
+                class="input-todo josefin-sans-400"
+                [formControl]="taskFieldForm"
+                (keyup.enter)="sendTask()"
+                type="text" 
+                placeholder="Create a new todo..."
+            >
+        </label>
+</section>
